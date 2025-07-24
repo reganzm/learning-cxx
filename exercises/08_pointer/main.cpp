@@ -1,21 +1,17 @@
 ﻿#include "../exercise.h"
-
+#include <stdio.h>
 // READ: 数组向指针退化 <https://zh.cppreference.com/w/cpp/language/array#%E6%95%B0%E7%BB%84%E5%88%B0%E6%8C%87%E9%92%88%E7%9A%84%E9%80%80%E5%8C%96>
 bool is_fibonacci(int *ptr, int len, int stride) {
     ASSERT(len >= 3, "`len` should be at least 3");
+    printf("Checking Fibonacci sequence with stride %d and length %d\n", stride, len);
     // TODO: 编写代码判断从 ptr 开始，每 stride 个元素取 1 个元素，组成长度为 n 的数列
-    for (int i = 0; i < len - 2; i += stride) {
-        // guard check
-        if (i + 2 >= len) {
-            return false;
-        }
-        // guard check
-        if (i + 1 >= len) {
-            return false;
-        }
-
+    for (int i = 0; i < len - 2; i++) {
+        int idx1 = i * stride;
+        int idx2 = (i + 1) * stride;
+        int idx3 = (i + 2) * stride;
+        printf("Checking %d: %d + %d = %d\n", i, ptr[idx1], ptr[idx2], ptr[idx3]);
         // 是否满足斐波那契数列的定义
-        if (ptr[i] + ptr[i + 1] != ptr[i + 2]) {
+        if (ptr[idx1] + ptr[idx2] != ptr[idx3]) {
             return false;
         }
     }
