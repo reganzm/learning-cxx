@@ -25,7 +25,7 @@ struct B final : public A {
     B() {
         ++num_b;
     }
-    ~B() {
+    virtual ~B() {
         --num_b;
     }
 
