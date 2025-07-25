@@ -23,6 +23,7 @@ int main(int argc, char **argv) {
         ASSERT(!vec[100], "Fill in `vec[100]` or `!vec[100]`.");
     }
     {
+        
         auto ref = vec[30];
         ASSERT(ref, "Fill in `ref` or `!ref`");
         ref = false;
